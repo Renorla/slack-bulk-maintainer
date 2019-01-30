@@ -81,13 +81,15 @@ function wait(waitSecs) {
 }
 
 function countdown(sec) {
-  process.stdout.clearLine();
-  process.stdout.cursorTo(0);
+  // cygwin実行用にコメントアウトしています。
+  // process.stdout.clearLine();
+  // process.stdout.cursorTo(0);
   process.stdout.write(sec.toString());
   const nextSec = sec - 1;
   if (nextSec < 0) {
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
+    // cygwin実行用にコメントアウトしています。
+    // process.stdout.clearLine();
+    // process.stdout.cursorTo(0);
     return Promise.resolve(sec);
   } else {
     return wait(1).then(() => countdown(nextSec));
